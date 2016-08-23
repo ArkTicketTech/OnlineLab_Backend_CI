@@ -22,11 +22,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{用户名}} <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $student_id ?> <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">个人信息</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">登出</a></li>
+                <li><a href="<?php echo base_url('user/logout')?>">登出</a></li>
               </ul>
             </li>
           </ul>
