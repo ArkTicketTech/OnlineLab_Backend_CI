@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <div class="container-fluid">
+      <div class="container-fluid container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">控制原理实验平台</a>
         </div>

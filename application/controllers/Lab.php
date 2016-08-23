@@ -2,41 +2,49 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Lab extends CI_Controller {
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
+
+	public function index($id=false)
 	{
-		$data['student_id']=$this->session->studentid;
-		$this->load->view('header', $data);
-		$this->load->view('lab_table');
+		if($id) {
+			$this->load->view('welcome_message');
+		} else {
+			$data['student_id']=$this->session->studentid;
+			$data['lab_time']=null;
+			$data['type']='all';
+			$this->load->model('lab_model');
+			$data['list']=$this->lab_model->alltables();
+			$this->load->view('header', $data);
+			$this->load->view('lab_table', $data);
+		}
 	}
 
 	public function all()
 	{
-
+		$data['student_id']=$this->session->studentid;
+		$data['lab_time']=null;
+		$data['type']='all';
+		$this->load->model('lab_model');
+		$data['list']=$this->lab_model->alltables();
+		$this->load->view('header', $data);
+		$this->load->view('lab_table', $data);
 	}
 
 	public function reserved()
 	{
-
+		$data['student_id']=$this->session->studentid;
+		$data['lab_time']='预约时间';
+		$data['type']='reserved';
+		$this->load->view('header', $data);
+		$this->load->view('lab_table', $data);
 	}
 
 	public function finished()
 	{
-
+		$data['student_id']=$this->session->studentid;
+		$data['lab_time']='预约时间';
+		$data['type']='finished';
+		$this->load->view('header', $data);
+		$this->load->view('lab_table', $data);
 	}
 
 }
