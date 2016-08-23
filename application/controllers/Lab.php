@@ -34,6 +34,8 @@ class Lab extends CI_Controller {
 		$data['student_id']=$this->session->studentid;
 		$data['lab_time']='预约时间';
 		$data['type']='reserved';
+		$this->load->model('lab_model');
+		$data['list']=$this->lab_model->reserved();
 		$this->load->view('header', $data);
 		$this->load->view('lab_table', $data);
 	}
