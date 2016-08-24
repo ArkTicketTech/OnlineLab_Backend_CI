@@ -16,9 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="<?php if($type == 'all') echo 'active'; ?>"><a href="#">所有实验 <span class="sr-only">(current)</span></a></li>
-            <li class="<?php if($type == 'reserved') echo 'active'; ?>"><a href="#">已预约实验</a></li>
-            <li class="<?php if($type == 'finished') echo 'active'; ?>"><a href="#">已完成实验</a></li>
+            <li class="<?php if($type == 'all') echo 'active'; ?>"><a href="<?php echo base_url('lab/all');?>">所有实验 <span class="sr-only">(current)</span></a></li>
+            <li class="<?php if($type == 'reserved') echo 'active'; ?>"><a href="<?php echo base_url('lab/reserved');?>">已预约实验</a></li>
+            <li class="<?php if($type == 'finished') echo 'active'; ?>"><a href="<?php echo base_url('lab/finished');?>">已完成实验</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
