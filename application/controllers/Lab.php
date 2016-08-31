@@ -67,9 +67,8 @@ class Lab extends CI_Controller {
 		if($this->session->id){
 			$type=$_FILES["file"]["type"];
 
-			var_dump($_FILES["file"]);
 			move_uploaded_file($_FILES["file"]["tmp_name"],"./public/labreport/".$id);
-			echo "<script>alert('success')</script>";
+			echo "<script>alert('success');window.location.href='".base_url('lab/finished')."'</script>";
 
 		}
 	}
