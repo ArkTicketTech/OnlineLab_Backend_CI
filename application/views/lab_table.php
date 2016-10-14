@@ -37,21 +37,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-dialog modal-lg"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> 
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="dismiss()">&times;</button> 
                 <h4 class="modal-title" id="myModalLabel">预约实验</h4> 
             </div> 
             <div style="padding-left:20px;padding-right:20px;height:;">
             	<div id="calobj" class="calobj"></div>
             </div> 
             <div class="modal-footer"> 
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="dismiss()">关闭</button> 
                 	<form method="post" action="<?php echo base_url('lab/toreserve/')?>" style="display:none;">
 											<input name="time" id="selecttime" />
 											<input name="date" id="selectdate" />
 											<input name="lab" id="selectlab" />
 											<input type="submit" id="posttime"/>
 									</form>
-                <button type="button" class="btn btn-primary" onclick="posttime()">提交更改</button> 
             </div> 
         </div><!-- /.modal-content --> 
     </div><!-- /.modal --> 
@@ -61,15 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-dialog modal-lg"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> 
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="dismiss()">&times;</button> 
                 <h4 class="modal-title" id="reserveDate">预约实验</h4> 
             </div> 
             <div style="padding-left:20px;padding-right:20px;height:1400px;">
             	<div id="caltime" class="linear"><dl class="cal_date"><dd class="cal_date_content"></dd></dl></div>
             </div> 
             <div class="modal-footer"> 
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
-                <button type="button" class="btn btn-primary">提交更改</button> 
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="dismiss()">关闭</button> 
+                <button type="button" class="btn btn-primary" onclick="posttime()">提交更改</button> 
             </div> 
         </div><!-- /.modal-content --> 
     </div><!-- /.modal --> 
@@ -108,6 +107,10 @@ function posttime(){
 	$("#selecttime").val(time_buf[0]);
 	$("#selectlab").val(choicelab);
 	$("#posttime").click();
+}
+
+function dismiss() {
+	$("#calobj").empty();
 }
 
 Calendar = function(){
