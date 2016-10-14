@@ -13,7 +13,6 @@ class Lab extends CI_Controller {
 			$data['type']='all';
 			$this->load->model('lab_model');
 			$data['list']=$this->lab_model->alltables();
-			var_dump($id);
 			if (!!$id) {
 				$this->load->view('lab_page');
 			} else {
