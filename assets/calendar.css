@@ -1,0 +1,28 @@
+#calobj {width:100%; }
+#calobj .cal_title{position:relative; height:40px;}
+#calobj .cal_month{display:block; width:200px; height:40px; margin:0 auto; font:22px/40px auto; color:#fff; text-align:center;}
+#calobj .cal_bt_month_left,
+#calobj .cal_bt_month_right,
+#calobj .cal_bt_year_left,
+#calobj .cal_bt_year_right{position:absolute; display:block; height:40px; font:bold 22px/40px auto; text-decoration:none; color:#fff;}
+#calobj .cal_bt_month_left{left:100px; text-align:left;}
+#calobj .cal_bt_month_right{right:100px; text-align:right;}
+#calobj .cal_bt_year_left{left:40px; text-align:right; color:#fff;}
+#calobj .cal_bt_year_right{right:40px; text-align:right; color:#fff;}
+#calobj .cal_date{width:100%; margin:auto;}
+#calobj .cal_date span{display:inline-block; width:12.5%; height:40px; font: 30px/40px auto;  color:#fff; text-align:center; cursor:pointer;}
+#calobj .cal_date_content span.cal_date_coming{color:rgb(90, 86, 86);}
+#calobj .cal_date_content span.cal_date_gone{color:rgb(90, 86, 86);}
+#calobj .cal_top span{width:12.5%; border:none; font-weight:bold;}
+#calobj .cal_date_content span.cal_date_gone{width:12.5%; height:40px; border:none; cursor:default;}
+#calobj .cal_date span.cal_date_now{color:#00f;}
+#calobj .cal_date span.cal_date_hover{background:#fff; color:#666;}
+#calobj .cal_date span.cal_date_choice{background:#0f0;}
+#calobj .cal_date span.cal_date_block{background:#f00;}
+#caltime .cal_date span{display:inline-block; width:75%; height:40px; font: 30px/40px auto;  color:#fff; text-align:center; cursor:pointer;}
+#caltime .cal_date span.region{width:25%;}
+#caltime .cal_date span.cal_date_hover{background:#fff; color:#666;}
+#caltime .cal_date span.cal_date_choice{background:#0f0;}
+#caltime .cal_date span.cal_date_block{background:#f00;}
+
+.linear{FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#1542A2,endColorStr=#9CF7A1); /*IE*/ background:-moz-linear-gradient(top,#1542A2,#9CF7A1);/*火狐*/ background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#1542A2), to(#9CF7A1));/*谷歌*/background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, #1542A2),color-stop(1,#9CF7A1));/* Safari & Chrome*/filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1542A2', endColorstr='#9CF7A1'); /*IE6 & IE7*/-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#1542A2', endColorstr='#9CF7A1')"; /* IE8 */}

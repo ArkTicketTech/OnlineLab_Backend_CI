@@ -13,8 +13,28 @@ class Lab extends CI_Controller {
 			$data['type']='all';
 			$this->load->model('lab_model');
 			$data['list']=$this->lab_model->alltables();
-			$this->load->view('header', $data);
-			$this->load->view('lab_table', $data);
+			var_dump($id);
+			if (!!$id) {
+				$this->load->view('lab_page');
+			} else {
+				$this->load->view('header', $data);
+				$this->load->view('lab_table', $data);
+			}
+		}
+	}
+
+	public function ongoing($id)
+	{
+		if(!$this->session->id) {
+			redirect('user/login');
+		} else {
+			$data['student_id']=$this->session->studentid;
+			$data['lab_time']=null;
+			$data['type']='all';
+			$this->load->model('lab_model');
+			$data['list']=$this->lab_model->alltables();
+			
+			$this->load->view('lab_page');
 		}
 	}
 
@@ -70,6 +90,21 @@ class Lab extends CI_Controller {
 			move_uploaded_file($_FILES["file"]["tmp_name"],"./public/labreport/".$id);
 			echo "<script>alert('success');window.location.href='".base_url('lab/finished')."'</script>";
 
+		}
+	}
+
+	public function toreserve(){
+		if($this->session->id){
+			$id = $this->session->id;
+			$this->load->model('lab_model');
+			$time = $_POST['time'];
+			$date = $_POST['date'];
+			$labid = $_POST['lab'];
+			// echo $labid;
+			// echo date("Y-m-d h:i:sa", strtotime($date)+$time*3600);
+			if($this->lab_model->toreserve(date("Y-m-d h:i:sa", strtotime($date)+$time*3600),$id,$labid)){
+				redirect('lab/reserved');
+			}
 		}
 	}
 
