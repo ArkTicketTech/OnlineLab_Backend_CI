@@ -97,11 +97,13 @@ class Lab extends CI_Controller {
 			$id = $this->session->id;
 			$this->load->model('lab_model');
 			$time = $_POST['time'];
+
 			$date = $_POST['date'];
 			$labid = $_POST['lab'];
 			// echo $labid;
 			// echo date("Y-m-d h:i:sa", strtotime($date)+$time*3600);
 			if($this->lab_model->toreserve(date("Y-m-d h:i:sa", strtotime($date)+$time*3600),$id,$labid)){
+				//var_dump($time);
 				redirect('lab/reserved');
 			}
 		}

@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td><?php echo $r["name"];?></td>
 					<td><?php echo "<a href=".base_url("public/labnote")."/".$r['id'].">下载</a>";?></td>
 					<?php if($lab_time != null) echo "<td>"."<span>".$r["start_time"]."</span>"."</td>";?>
-					<td><?php if($type == 'all') echo "<a class='reserve btn btn-primary' onclick='init_cal(".$r['id'].")' data-toggle='modal' data-target='#myModal'>预约</a>"; if($type == 'reserved') echo "<a class='btn btn-primary' href='".base_url('lab/ongoing/')."/".$r['lab_id']."'>开始</a>"; if($type == 'finished') echo "<span class='upload btn btn-primary' onclick='upload(".$r['lab_id'].")' >上传实验报告</span>";?></td>
+					<td><?php if($type == 'all') echo "<a class='reserve btn btn-primary' onclick='init_cal(".$r['id'].")' data-toggle='modal' data-target='#myModal'>预约</a>"; if($type == 'reserved') echo "<button class='btn btn-primary' onclick='beginlab(".$r['lab_id'].", \"".$r['start_time']."\")'>开始</button>"; if($type == 'finished') echo "<span class='upload btn btn-primary' onclick='upload(".$r['lab_id'].")' >上传实验报告</span>";?></td>
 				</tr>
 			<?php
 				}
@@ -111,6 +111,16 @@ function posttime(){
 
 function dismiss() {
 	$("#calobj").empty();
+}
+
+function beginlab(id, time) {
+	if (1) {
+		var starttime = new Date(time);
+		var now = new Date();
+		var timeDiff = Math.abs(now.getTime() - starttime.getTime());
+		if(timeDiff > 3600 || timeDiff < 0) {alert("试验尚未开始或已过期"); return;}
+	}
+	window.location.href="<?php echo base_url('lab/ongoing/')?>"+id;
 }
 
 Calendar = function(){
