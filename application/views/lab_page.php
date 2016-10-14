@@ -47,7 +47,6 @@ h1 {
     <strong id="minute_show">0分</strong>
     <strong id="second_show">0秒</strong>
 </div>
-<div class="container">
 <object width="100%" height="100%">
     <param name="lab" value="<?php echo base_url('public/weblab.swf')?>">
     <embed src="<?php echo base_url('public/weblab.swf')?>" width="100%" height="100%">
@@ -55,7 +54,6 @@ h1 {
 </object>
 <a type="button" class="btn btn-primary" href="<?php echo base_url('lab/finished')?>">完成</a> 
 
-</div>
 
 
 <script type="text/javascript">
