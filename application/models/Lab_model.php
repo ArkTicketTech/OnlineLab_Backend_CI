@@ -26,9 +26,20 @@ class Lab_model extends CI_Model {
 	}
 
 	public function toreserve($time, $id, $labid){
+
+		$sql="SELECT * FROM labs WHERE start_time = ? AND labtable_id = ?";
+		$sql=$this->db->query($sql, array($time, $labid));
+		if (count($sql->result_array())>0)
+			return false;
 		$sql = "INSERT INTO labs (student_id, labtable_id, start_time) values (? , ?, ?);";
 		$sql = $this->db->query($sql, array($id,$labid,$time));
 		return $sql;
+	}
+
+	public function labdetail ($id) {
+		$sql = "SELECT * FROM labs WHERE labs.id = ?";
+		$sql = $this->db->query($sql, array($id));
+		return $sql->result_array();
 	}
 
 }

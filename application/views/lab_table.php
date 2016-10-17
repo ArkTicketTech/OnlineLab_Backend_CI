@@ -118,7 +118,12 @@ function beginlab(id, time) {
 		var starttime = new Date(time);
 		var now = new Date();
 		var timeDiff = Math.abs(now.getTime() - starttime.getTime());
-		if(timeDiff > 3600 || timeDiff < 0) {alert("试验尚未开始或已过期"); return;}
+		console.log(now);
+		console.log(starttime);
+		console.log(now.getTime());
+		console.log(starttime.getTime());
+		// debugger
+		if(timeDiff > 3600000 || timeDiff < 0) {alert("试验尚未开始或已过期"); return;}
 	}
 	window.location.href="<?php echo base_url('lab/ongoing/')?>"+id;
 }

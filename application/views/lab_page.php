@@ -42,6 +42,7 @@ h1 {
     float:left;
 }
 </style>
+
 <div class="time-item">
     <strong id="hour_show">0时</strong>
     <strong id="minute_show">0分</strong>
@@ -57,7 +58,13 @@ h1 {
 
 
 <script type="text/javascript">
-var intDiff = parseInt(3600);//倒计时总秒数量
+var deadline = "<?php echo($detail[0]['start_time']);?>";
+var now = new Date();
+deadline = new Date(deadline);
+var timeDiff = deadline.getTime() - now.getTime() + 3600000;
+var intDiff = parseInt(timeDiff/1000);//倒计时总秒数量
+
+
 function timer(intDiff){
     window.setInterval(function(){
     var day=0,

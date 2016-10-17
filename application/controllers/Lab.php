@@ -28,12 +28,10 @@ class Lab extends CI_Controller {
 			redirect('user/login');
 		} else {
 			$data['student_id']=$this->session->studentid;
-			$data['lab_time']=null;
-			$data['type']='all';
 			$this->load->model('lab_model');
-			$data['list']=$this->lab_model->alltables();
+			$data['detail']=$this->lab_model->labdetail($id);
 			
-			$this->load->view('lab_page');
+			$this->load->view('lab_page', $data);
 		}
 	}
 
@@ -107,6 +105,9 @@ class Lab extends CI_Controller {
 				// var_dump($date);
 				// var_dump(date("Y-m-d h:i:sa", strtotime($date)+intval($time)*3600));
 				redirect('lab/reserved');
+			} else {
+				$temp = base_url("lab/all");
+				echo "<script>alert('该时间段已有人预约');window.location.href='".$temp."'</script>";
 			}
 		}
 	}
